@@ -13,3 +13,11 @@ class LinkedList:
         while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
+
+    def to_list(self):
+        nodes = []
+        current_node = self.head
+        while current_node:
+            nodes.append(current_node.data)
+            current_node = current_node.next
+        return nodes
