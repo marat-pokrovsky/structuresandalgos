@@ -1,5 +1,5 @@
 from data_structures.linked_list.linked_list import LinkedList
-from algorithms.sorting.bubble_sort import bubble_sort
+from algorithms.sorting.merge_sort import merge_sort
 
 # Create a LinkedList instance
 ll = LinkedList()
@@ -12,8 +12,8 @@ for item in data_to_append:
 # Convert the linked list to a list
 list_representation = ll.to_list()
 
-# Sort the list using bubble_sort
-sorted_list = bubble_sort(list_representation)
+# Sort the list using merge_sort
+sorted_list = merge_sort(list_representation)
 
 # Print the sorted list
 print(sorted_list)
