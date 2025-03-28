@@ -14,6 +14,40 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = new_node
 
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def delete(self, data):
+        current_node = self.head
+
+        if current_node and current_node.data == data:
+            self.head = current_node.next
+            current_node = None
+            return
+
+        prev = None
+        while current_node and current_node.data != data:
+            prev = current_node
+            current_node = current_node.next
+
+        if current_node is None:
+            return
+
+        prev.next = current_node.next
+        current_node = None
+
+    def insert_after(self, prev_node_data, data):
+        current_node = self.head
+        while current_node and current_node.data != prev_node_data:
+            current_node = current_node.next
+
+        if current_node:
+            new_node = Node(data)
+            new_node.next = current_node.next
+            current_node.next = new_node
+
     def to_list(self):
         nodes = []
         current_node = self.head
@@ -21,3 +55,11 @@ class LinkedList:
             nodes.append(current_node.data)
             current_node = current_node.next
         return nodes
+
+    def __str__(self):
+        nodes = []
+        current_node = self.head
+        while current_node:
+            nodes.append(str(current_node.data))
+            current_node = current_node.next
+        return " -> ".join(nodes)
