@@ -1,10 +1,18 @@
-from setuptools import setup, Extension
-
-module = Extension('cpython', sources=['data_structures/cpython/linked_list.c'])
+from distutils.core import setup, Extension
 
 setup(
-    name='cpython',
-    version='1.0',
-    description='CPython implementations of data structures and algorithms.',
-    ext_modules=[module]
+    name="cpython",
+    version="1.0",
+    ext_modules=[
+        Extension(
+            "cpython",
+            [
+                "data_structures/cpython/linked_list.c",
+                "data_structures/cpython/doubly_linked_list.c",
+                "data_structures/cpython/stack.c",
+                "data_structures/cpython/queue.c",
+                "data_structures/cpython/hash_table.c",
+            ],
+        )
+    ],
 )
