@@ -1,33 +1,52 @@
-# Python UV Starter
+# Python FastAPI API Server
 
-This is a simple Python [uv](https://docs.astral.uv) starter in Firebase Studio.
+This is a simple Python FastAPI server that provides endpoints for common sorting algorithms and data structures.
 
-## Running
+## Installation
 
-```
-uv run main.py
-```
+To install the dependencies, run the following command:
 
-## Add dependencies
-
-```
-uv add ruff
+```bash
+uv pip install -r requirements.txt
 ```
 
-## CPython Implementations
+## Running the Server
 
-This project also includes CPython implementations of common data structures for performance-critical scenarios. The following data structures are available as C extensions:
+To run the server, use the following command:
 
-*   LinkedList
-*   DoublyLinkedList
-*   Stack
-*   Queue
-*   HashTable
-
-### Building the C Extensions
-
-To build the C extensions, you will need to have a C compiler and Python development headers installed. Then, you can run the following command:
-
+```bash
+uvicorn api_server.main:app --host 0.0.0.0 --port 8000
 ```
-python3 setup.py build_ext --inplace
+
+## API Endpoints
+
+The following API endpoints are available:
+
+### Sorting
+
+*   **POST /sorting/bubble-sort**: Sorts a list of numbers using the bubble sort algorithm.
+*   **POST /sorting/heap-sort**: Sorts a list of numbers using the heap sort algorithm.
+*   **POST /sorting/insertion-sort**: Sorts a list of numbers using the insertion sort algorithm.
+*   **POST /sorting/merge-sort**: Sorts a list of numbers using the merge sort algorithm.
+*   **POST /sorting/quick-sort**: Sorts a list of numbers using the quick sort algorithm.
+*   **POST /sorting/selection-sort**: Sorts a list of numbers using the selection sort algorithm.
+
+**Example:**
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '[5, 2, 8, 1, 9]' http://0.0.0.0:8000/sorting/bubble-sort
+```
+
+### Data Structures
+
+*   **POST /data-structures/doubly-linked-list**: Creates a doubly linked list from a list of elements.
+*   **POST /data-structures/hash-table**: Creates a hash table from a list of elements.
+*   **POST /data-structures/linked-list**: Creates a linked list from a list of elements.
+*   **POST /data-structures/stack**: Creates a stack from a list of elements.
+*   **POST /data-structures/queue**: Creates a queue from a list of elements.
+
+**Example:**
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '["hello", "world"]' http://0.0.0.0:8000/data-structures/stack
 ```
