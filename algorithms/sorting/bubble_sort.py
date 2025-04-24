@@ -1,4 +1,5 @@
 def bubble_sort(arr):
+    """Sorts a list in ascending order using the bubble sort algorithm."""
     n = len(arr)
     for i in range(n):
         for j in range(0, n-i-1):
