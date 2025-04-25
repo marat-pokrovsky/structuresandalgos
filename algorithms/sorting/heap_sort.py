@@ -1,4 +1,5 @@
 def heapify(arr, n, i):
+    """Heapifies a subtree rooted at index i."""
     largest = i
     l = 2 * i + 1
     r = 2 * i + 2
@@ -14,6 +15,7 @@ def heapify(arr, n, i):
         heapify(arr, n, largest)
 
 def heap_sort(arr):
+    """Sorts a list in ascending order using the heap sort algorithm."""
     n = len(arr)
 
     for i in range(n // 2 - 1, -1, -1):
