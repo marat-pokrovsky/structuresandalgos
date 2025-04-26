@@ -1,4 +1,5 @@
 def insertion_sort(arr):
+    """Sorts a list in ascending order using the insertion sort algorithm."""
     for i in range(1, len(arr)):
         key = arr[i]
         j = i-1
