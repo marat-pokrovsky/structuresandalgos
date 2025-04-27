@@ -1,4 +1,5 @@
 def merge_sort(arr):
+    """Sorts a list in ascending order using the merge sort algorithm."""
     if len(arr) > 1:
         mid = len(arr) // 2
         L = arr[:mid]
