@@ -1,4 +1,5 @@
 def quick_sort(arr):
+    """Sorts a list in ascending order using the quick sort algorithm."""
     if len(arr) <= 1:
         return arr
     else:
